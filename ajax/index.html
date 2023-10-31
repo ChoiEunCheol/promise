@@ -22,6 +22,7 @@
 
             // 요청 완료 시 처리할 이벤트 핸들러
             xhr.onload = function () {
+                console.log(xhr);
                 if (xhr.status >= 200 && xhr.status < 300) {
                     var response = JSON.parse(xhr.responseText);
                     document.getElementById('result').innerHTML = "게시물 제목: " + response.title;
