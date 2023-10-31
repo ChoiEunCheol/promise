@@ -1,14 +1,20 @@
-const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성
-xhr.open("GET", "https://jsonplaceholder.typicode.com/posts"); //HTTP Method, URL 정의
-xhr.setRequestHeader("content-type", "application/json"); //헤더 값 중 content-type 정의
-xhr.send(); // 요청 전송
-xhr.onload = () => {
-if (xhr.status === 200) {
-// 정상적으로 응답이 되면 status가 200
-const res = JSON.parse(xhr.response); // 응답 데이터를 JSON.parse 함수로 JSON 객체로 변경
-console.log(res); // 100개의 데이터를 받아 옴
-} else {
-// 에러 발생
-console.error(xhr.status, xhr.statusText); //응답 상태와 응답 메시지를 출력
-}
-};
+// 데이터를 가져올 URL
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+// fetch 함수를 사용하여 GET 요청 보내기
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('네트워크 오류: ' + response.status);
+    }
+    console.log(response);
+    return response.json(); // JSON 형식의 응답을 파싱
+    
+  })
+  .then(data => {
+    console.log('데이터 가져오기 성공:', data);
+    console.log(data.title);
+})
+  .catch(error => {
+    console.error('데이터 가져오기 실패:', error);
+  });
