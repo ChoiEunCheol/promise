@@ -8,14 +8,10 @@ function fetchData() {
     });
   }
   
-//   fetchData()
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-  
-
-    fetchData()
-        .then(result => {console.log(result)} , err => {throw err});
+  fetchData()
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
