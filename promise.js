@@ -1,17 +1,14 @@
-function fetchData() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const data = "데이터가 도착했습니다.";
-        // resolve(data); // 데이터를 성공적으로 가져왔을 때
-        reject("데이터 가져오기 실패"); // 데이터 가져오기를 실패했을 때
-      }, 2000);
-    });
-  }
-  
-  fetchData()
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성
+xhr.open("GET", "https://jsonplaceholder.typicode.com/posts"); //HTTP Method, URL 정의
+xhr.setRequestHeader("content-type", "application/json"); //헤더 값 중 content-type 정의
+xhr.send(); // 요청 전송
+xhr.onload = () => {
+if (xhr.status === 200) {
+// 정상적으로 응답이 되면 status가 200
+const res = JSON.parse(xhr.response); // 응답 데이터를 JSON.parse 함수로 JSON 객체로 변경
+console.log(res); // 100개의 데이터를 받아 옴
+} else {
+// 에러 발생
+console.error(xhr.status, xhr.statusText); //응답 상태와 응답 메시지를 출력
+}
+};
