@@ -1,4 +1,4 @@
-// Fetch 및 콜백 함수로 JSON 데이터 가져오는 함수
+// Callback 함수를 사용하여 JSON 데이터 가져오는 함수
 function fetchDataWithCallback(callback) {
   fetch('https://jsonplaceholder.typicode.com/posts/1')
     .then(response => {
@@ -20,6 +20,6 @@ fetchDataWithCallback(function (error, data) {
   if (error) {
     console.error('에러:', error);
   } else {
-    console.log('Fetch로 가져온 데이터:', data);
+    console.log('Callback으로 가져온 데이터:', data);
   }
 });

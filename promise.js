@@ -1,24 +1,16 @@
 // Promise를 사용하여 JSON 데이터 가져오는 함수
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
-      .then(response => {
-        if (!response.ok) {
-          reject('네트워크 오류');
-        }
-        return response.json();
-      })
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
+function fetchDataWithPromise() {
+  return fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('네트워크 오류');
+      }
+      return response.json();
+    });
 }
 
-// fetchData 함수 사용 예제
-fetchData()
+// fetchDataWithPromise 함수 사용 예제
+fetchDataWithPromise()
   .then(data => {
     console.log('Promise로 가져온 데이터:', data);
   })
