@@ -1,0 +1,31 @@
+{
+  "name": "zoo",
+  "location": "Daejoen",
+  "size": "10000m^2",
+  "animal": {
+    "mammal": [
+      {
+        "name": "elephant",
+        "population": 3
+      },
+      {
+        "name": "cat",
+        "population": 18
+      },
+      {
+        "name": "dog",
+        "population": 12
+      }
+    ],
+    "bird": [
+        {
+            "name": "parrot",
+            "population": 6
+        },
+        {
+            "name": "crow",
+            "population": 11
+        }
+    ]
+  }
+}
